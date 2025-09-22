@@ -1,29 +1,44 @@
-// problem.controller.js
+function pingProblemController(req, res) {
+  return res.json({
+    message: 'Problem controller is up'
+  });
+}
 
-const pingController = (req, res) => {
-  return res.json({ message: "problem controller is up" });
-};
+function addProblem(req, res) {
+  return res.status(501).json({
+    message: 'Not implemented'
+  });
+}
 
-const getProblems = (req, res) => {
-  return res.json({ message: "Get problems controller" });
-};
+function getProblem(req, res) {
+  return res.status(501).json({
+    message: 'Not implemented'
+  });
+}
 
-const addProblem = (req, res) => {
-  return res.json({ message: "Add problem controller" });
-};
+function getProblems(req, res) {
+  return res.status(501).json({
+    message: 'Not implemented'
+  });
+}
 
-const deleteProblem = (req, res) => {
-  return res.json({ message: "Delete problem controller" });
-};
+function deleteProblem(req, res) {
+  return res.status(501).json({
+    message: 'Not implemented'
+  });
+}
 
-const updateProblem = (req, res) => {
-  return res.json({ message: "Update problem controller" });
-};
+function updateProblem(req, res) {
+  return res.status(501).json({
+    message: 'Not implemented'
+  });
+}
 
 module.exports = {
-  pingController,
-  getProblems,
+  pingProblemController,
   addProblem,
+  getProblem,
+  getProblems,
   deleteProblem,
-  updateProblem,
+  updateProblem
 };
