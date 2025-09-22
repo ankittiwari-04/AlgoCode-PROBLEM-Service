@@ -1,10 +1,10 @@
-// routes/index.js
 const express = require('express');
-const problemRouter = require('./v1/problem.routes');
 
-const router = express.Router();
+const v1Router = require('./v1');
 
-// mount problems routes under /v1/problems
-router.use('/v1/problems', problemRouter);
+const apiRouter = express.Router();
 
-module.exports = router;
+// If any request comes and route continues with /v1, we map it to v1Router
+apiRouter.use('/v1', v1Router);
+
+module.exports = apiRouter;

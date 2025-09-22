@@ -13,7 +13,7 @@ app.get('/ping', (req, res) => {
   return res.json({ message: 'Problem Service is alive' });
 });
 
-// mount all routes
+// IF ANY REQUEST COMES AND ROUTE STARTS WITH/API,WE MAP IT TO API ROUTER
 app.use('/api', apiRouter);
 
 app.listen(PORT, () => {
