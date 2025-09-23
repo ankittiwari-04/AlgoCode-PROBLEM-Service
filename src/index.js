@@ -1,16 +1,21 @@
- const express = require('express');
- const bodyparser = require ('body-parser');
+// src/index.js
+const express = require('express');
+const { PORT } = require('./config/server.config');
 
- const { PORT } = require('./config/server.config');
+const apiRouter = require('./routes');
 
- const app =express() ;
- app.use(bodyparser.json());
- app.use(bodyparser.urlencoded());
- app.use(bodyparser.text()); 
+const app = express();
 
- app.get('/ping',(req,res) => {
-    return res.join({message:'problem service is alive'})
- }    ); 
- app.listen(PORT,()=>{
-    console.log(`server strated at PORT:${PORT}`);
- });
+app.use(express.json());
+
+// health check
+app.get('/ping', (req, res) => {
+  return res.json({ message: 'Problem Service is alive' });
+});
+
+// IF ANY REQUEST COMES AND ROUTE STARTS WITH/API,WE MAP IT TO API ROUTER
+app.use('/api', apiRouter);
+
+app.listen(PORT, () => {
+  console.log(`Server started at PORT: ${PORT}`);
+});
